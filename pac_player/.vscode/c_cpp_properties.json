@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/gbaman/nds_projects/j_player/pac_player/nflib/include",
+                "/home/${USER}/nds_projects/j_player/pac_player/nflib/include",
                 "/opt/devkitpro/libnds/include"
             ],
             "defines": [],

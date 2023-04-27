@@ -84,8 +84,11 @@ void loadAssets() {
 
 void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
 	NF_CreateSprite(1,0,0,0,x1,y1);
+	NF_EnableSpriteRotScale(1,0,0,true);
 	NF_CreateSprite(1,1,0,0,x2,y2);
+	NF_EnableSpriteRotScale(1,1,0,true);
 	NF_CreateSprite(1,2,0,0,x3,y3);
+	NF_EnableSpriteRotScale(1,2,0,true);
 	NF_SpriteFrame(1,0,1);
 	NF_SpriteFrame(1,1,0);
 	NF_SpriteFrame(1,2,2);
@@ -94,13 +97,18 @@ void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
 void drawCoverArt(int x, int y, int id)
 {
 	NF_CreateSprite(1,3,id,id,x,y);
+	NF_EnableSpriteRotScale(1,3,id,true);
 	NF_CreateSprite(1,4,id,id,x,y+32);
+	NF_EnableSpriteRotScale(1,4,id,true);
 	NF_CreateSprite(1,5,id,id,x+32,y);
+	NF_EnableSpriteRotScale(1,5,id,true);
 	NF_CreateSprite(1,6,id,id,x+32,y+32);
-	NF_SpriteFrame(1,3,0);
-	NF_SpriteFrame(1,4,1);
-	NF_SpriteFrame(1,5,2);
-	NF_SpriteFrame(1,6,3);
+	NF_EnableSpriteRotScale(1,6,id,true);
+	NF_SpriteFrame(1,3,1);
+	NF_SpriteFrame(1,4,3);
+	NF_SpriteFrame(1,5,0);
+	NF_SpriteFrame(1,6,2);
+	NF_SpriteRotScale(1,id,128,256,256);
 
 }
 
@@ -161,18 +169,18 @@ int main(int argc, char* argv[]) {
 	soundEnable();
 	jPlayer player;
 	Icon left;
-	left.x = 256/2 - 16/2 - 60;
-	left.y = 192/2 - 16/2 + 60;
+	left.x = 60;
+	left.y = 192/2 - 16/2 - 60;
 	Icon right;
-	right.x = 256/2 - 16/2 + 60;
+	right.x = 60;
 	right.y = 192/2 - 16/2 + 60;
 	Icon middle;
-	middle.x = 256/2 - 16/2;
-	middle.y = 192/2 - 16/2 + 60;
+	middle.x = 60;
+	middle.y = 192/2 - 16/2;
 
 	MetaSprite coverArt;
-	coverArt.x = 256/2 - 64/2;
-	coverArt.y = 20;
+	coverArt.x = 256 - (64 + 64);
+	coverArt.y = 192/2 - 80/2;
 	coverArt.id = 1;
 
 	player.time = 0;
