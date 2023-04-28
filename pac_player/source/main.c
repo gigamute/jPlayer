@@ -7,6 +7,11 @@
 #define SAMPLE_RATE 0 // Sample rate
 #define MUSIC_SIZE 12 // Amount of songs
 
+typedef enum {
+	SPRITE_NOT_CREATED,
+	SPRITE_CREATED
+} SpriteState;
+
 // Struct definition for icon object
 typedef struct {
 	// X position of object
@@ -54,62 +59,49 @@ typedef enum {
 void loadAssets() {
 	NF_LoadSpriteGfx("GFX/playback",0,16,16);
 	NF_LoadSpritePal("GFX/playback",0);
-	NF_VramSpriteGfx(1,0,0,false);
-	NF_VramSpritePal(1,0,0);
-	NF_LoadSpriteGfx("GFX/2pacalypsenow_coverart",1,32,32);
-	NF_LoadSpritePal("GFX/2pacalypsenow_coverart",1);
-	NF_VramSpriteGfx(1,1,1,false);
-	NF_VramSpritePal(1,1,1);
-	NF_LoadSpriteGfx("GFX/pacstricly_coverart",2,32,32);
-	NF_LoadSpritePal("GFX/pacstricly_coverart",2);
-	NF_VramSpriteGfx(1,2,2,false);
-	NF_VramSpritePal(1,2,2);
-	NF_LoadSpriteGfx("GFX/thuglife_coverart",3,32,32);
-	NF_LoadSpritePal("GFX/thuglife_coverart",3);
-	NF_VramSpriteGfx(1,3,3,false);
-	NF_VramSpritePal(1,3,3);
-	NF_LoadSpriteGfx("GFX/matw_coverart",4,32,32);
-	NF_LoadSpritePal("GFX/matw_coverart",4);
-	NF_VramSpriteGfx(1,4,4,false);
-	NF_VramSpritePal(1,4,4);
-	NF_LoadSpriteGfx("GFX/aeom_coverart",5,32,32);
-	NF_LoadSpritePal("GFX/aeom_coverart",5);
-	NF_VramSpriteGfx(1,5,5,false);
-	NF_VramSpritePal(1,5,5);
-	NF_LoadSpriteGfx("GFX/makiaveli_coverart",6,32,32);
-	NF_LoadSpritePal("GFX/makiaveli_coverart",6);
-	NF_VramSpriteGfx(1,6,6,false);
-	NF_VramSpritePal(1,6,6);
+	NF_Vram3dSpriteGfx(0,0,false);
+	NF_Vram3dSpritePal(0,0);
+	NF_LoadSpriteGfx("GFX/2pacnow",1,64,64);
+	NF_LoadSpritePal("GFX/2pacnow",1);
+	NF_Vram3dSpriteGfx(1,1,true);
+	NF_Vram3dSpritePal(1,1);
+	NF_LoadSpriteGfx("GFX/2pacstrict",2,64,64);
+	NF_LoadSpritePal("GFX/2pacstrict",2);
+	NF_Vram3dSpriteGfx(2,2,true);
+	NF_Vram3dSpritePal(2,2);
+	NF_LoadSpriteGfx("GFX/2pacthug",3,64,64);
+	NF_LoadSpritePal("GFX/2pacthug",3);
+	NF_Vram3dSpriteGfx(3,3,true);
+	NF_Vram3dSpritePal(3,3);
+	NF_LoadSpriteGfx("GFX/2pacworld",4,64,64);
+	NF_LoadSpritePal("GFX/2pacworld",4);
+	NF_Vram3dSpriteGfx(4,4,true);
+	NF_Vram3dSpritePal(4,4);
+	NF_LoadSpriteGfx("GFX/2paceyez",5,64,64);
+	NF_LoadSpritePal("GFX/2paceyez",5);
+	NF_Vram3dSpriteGfx(5,5,true);
+	NF_Vram3dSpritePal(5,5);
+	NF_LoadSpriteGfx("GFX/2pactheory",6,64,64);
+	NF_LoadSpritePal("GFX/2pactheory",6);
+	NF_Vram3dSpriteGfx(6,6,true);
+	NF_Vram3dSpritePal(6,6);
 }
 
 void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
-	NF_CreateSprite(1,0,0,0,x1,y1);
-	NF_EnableSpriteRotScale(1,0,0,true);
-	NF_CreateSprite(1,1,0,0,x2,y2);
-	NF_EnableSpriteRotScale(1,1,0,true);
-	NF_CreateSprite(1,2,0,0,x3,y3);
-	NF_EnableSpriteRotScale(1,2,0,true);
-	NF_SpriteFrame(1,0,1);
-	NF_SpriteFrame(1,1,0);
-	NF_SpriteFrame(1,2,2);
+	NF_Create3dSprite(0,0,0,x1,y1);
+	NF_Create3dSprite(1,0,0,x2,y2);
+	NF_Create3dSprite(2,0,0,x3,y3);
+	NF_Set3dSpriteFrame(0,1);
+	NF_Set3dSpriteFrame(1,0);
+	NF_Set3dSpriteFrame(2,2);
+	NF_Rotate3dSprite(0,0,0,128);
+	NF_Rotate3dSprite(1,0,0,128);
+	NF_Rotate3dSprite(2,0,0,128);
 }
 
 void drawCoverArt(int x, int y, int id)
 {
-	NF_CreateSprite(1,3,id,id,x,y);
-	NF_EnableSpriteRotScale(1,3,id,true);
-	NF_CreateSprite(1,4,id,id,x,y+32);
-	NF_EnableSpriteRotScale(1,4,id,true);
-	NF_CreateSprite(1,5,id,id,x+32,y);
-	NF_EnableSpriteRotScale(1,5,id,true);
-	NF_CreateSprite(1,6,id,id,x+32,y+32);
-	NF_EnableSpriteRotScale(1,6,id,true);
-	NF_SpriteFrame(1,3,1);
-	NF_SpriteFrame(1,4,3);
-	NF_SpriteFrame(1,5,0);
-	NF_SpriteFrame(1,6,2);
-	NF_SpriteRotScale(1,id,128,256,256);
-
+	NF_Create3dSprite(3,id,id,x,y);
 }
 
 void chooseCoverArtID(int x, int y, int song_id,int cover_id)
@@ -154,15 +146,26 @@ void copySongsToBank(const char* array[MUSIC_SIZE][ARRAY_SIZE])
 	memcpy(array[7],tupac_ftw,sizeof(tupac_ftw));
 }
 
+int checkStylusPos(touchPosition* pen, int iconX, int iconY) {
+
+	if (pen->px > iconX + 16 && pen->px < iconX) {
+		if (pen->py > iconY + 16 && pen->py < iconY) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
 int main(int argc, char* argv[]) {
 	NF_Set2D(0,0);
 	NF_Set2D(1,0);
+	NF_Set3D(1,0);
 	NF_InitTiledBgBuffers();
 	NF_InitTiledBgSys(0);
 	NF_InitTiledBgSys(1);
 	NF_InitSpriteBuffers();
-	NF_InitSpriteSys(0);
-	NF_InitSpriteSys(1);
+	NF_Init3dSpriteSys();
 	NF_InitRawSoundBuffers();
 	NF_SetRootFolder("NITROFS");
 	loadAssets();
@@ -180,7 +183,7 @@ int main(int argc, char* argv[]) {
 
 	MetaSprite coverArt;
 	coverArt.x = 256 - (64 + 64);
-	coverArt.y = 192/2 - 80/2;
+	coverArt.y = 192/2 - 64/2;
 	coverArt.id = 1;
 
 	player.time = 0;
@@ -195,38 +198,49 @@ int main(int argc, char* argv[]) {
 	NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
 	NF_LoadRawSound("SFX/press",1,22050,0);
 	timerStates state = timerState_Stopped;
+	SpriteState sprState = SPRITE_NOT_CREATED;
+	touchPosition stylus;
 	while (1)
 	{
-		drawSprites(left.x,right.x,middle.x,left.y,right.y,middle.y);
-		chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
+		if (sprState == SPRITE_NOT_CREATED) {
+			chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
+			drawSprites(left.x,right.x,middle.x,left.y,right.y,middle.y);
+			sprState = SPRITE_CREATED;
+		}
 
 		scanKeys();
-		if (keysDown() & KEY_RIGHT) {
-			NF_PlayRawSound(1,127,64,false,0);
-			if (player.songId < 7) {
-				player.PLAYING = false;
-				timerStop(3);
-				NF_UnloadRawSound(player.id);
-				soundKill(channel_id);
-				player.playIndex = 0;
-				player.songId++;
-				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-				player.time = 0;
-				state = timerState_Stopped;
+		if (checkStylusPos(&stylus,right.x,right.y)) {
+			if (keysDown() & KEY_TOUCH) {
+				NF_PlayRawSound(1,127,64,false,0);
+				if (player.songId < 7) {
+					player.PLAYING = false;
+					timerStop(3);
+					NF_UnloadRawSound(player.id);
+					soundKill(channel_id);
+					player.playIndex = 0;
+					player.songId++;
+					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+					player.time = 0;
+					state = timerState_Stopped;
+					sprState = SPRITE_NOT_CREATED;
+				}
 			}
 		}
-		else if (keysDown() & KEY_LEFT) {
-			NF_PlayRawSound(1,127,64,false,0);
-			if (player.songId > 0) {
-				player.PLAYING = false;
-				timerStop(3);
-				NF_UnloadRawSound(player.id);
-				soundKill(channel_id);
-				player.playIndex = 0;
-				player.songId--;
-				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-				player.time = 0;
-				state = timerState_Stopped;
+		else if (checkStylusPos(&stylus,left.x,left.y)) {
+			if (keysDown() & KEY_TOUCH) {
+				NF_PlayRawSound(1,127,64,false,0);
+				if (player.songId > 0) {
+					player.PLAYING = false;
+					timerStop(3);
+					NF_UnloadRawSound(player.id);
+					soundKill(channel_id);
+					player.playIndex = 0;
+					player.songId--;
+					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+					player.time = 0;
+					state = timerState_Stopped;
+					sprState = SPRITE_NOT_CREATED;
+				}
 			}
 		}
 		if (!player.PLAYING)
@@ -265,11 +279,11 @@ int main(int argc, char* argv[]) {
 			}
 		}
 
-		NF_SpriteOamSet(0);
-		NF_SpriteOamSet(1);
+		NF_Draw3dSprites();
+		glFlush(0);
+		touchRead(&stylus);
 		swiWaitForVBlank();
-		oamUpdate(&oamMain);
-		oamUpdate(&oamSub);
+		NF_Update3dSpritesGfx();
 	}
 	
 	return 0;
