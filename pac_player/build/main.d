@@ -1,4 +1,5 @@
-main.o: /home/gbaman/projects/jPlayer/pac_player/source/main.c \
+main.o: \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/source/main.c \
  /opt/devkitpro/libnds/include/nds.h \
  /opt/devkitpro/libnds/include/nds/libversion.h \
  /opt/devkitpro/libnds/include/nds/ndstypes.h \
@@ -59,23 +60,23 @@ main.o: /home/gbaman/projects/jPlayer/pac_player/source/main.c \
  /opt/devkitpro/libnds/include/nds/arm9/video.h \
  /opt/devkitpro/libnds/include/nds/arm9/videoGL.h \
  /opt/devkitpro/libnds/include/nds/arm9/nand.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_lib.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_defines.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_basic.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_2d.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_tiledbg.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_affinebg.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_bitmapbg.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_mixedbg.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite256.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_text.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_text16.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_colision.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sound.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_media.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_3d.h \
- /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite3d.h \
- /home/gbaman/projects/jPlayer/pac_player/source/songArrays.h
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_lib.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_defines.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_basic.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_2d.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_tiledbg.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_affinebg.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_bitmapbg.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_mixedbg.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sprite256.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_text.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_text16.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_colision.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sound.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_media.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_3d.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sprite3d.h \
+ /home/jollyrancher/projects/jPlayer/jPlayer/pac_player/source/songArrays.h
 /opt/devkitpro/libnds/include/nds.h:
 /opt/devkitpro/libnds/include/nds/libversion.h:
 /opt/devkitpro/libnds/include/nds/ndstypes.h:
@@ -136,20 +137,20 @@ main.o: /home/gbaman/projects/jPlayer/pac_player/source/main.c \
 /opt/devkitpro/libnds/include/nds/arm9/video.h:
 /opt/devkitpro/libnds/include/nds/arm9/videoGL.h:
 /opt/devkitpro/libnds/include/nds/arm9/nand.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_lib.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_defines.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_basic.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_2d.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_tiledbg.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_affinebg.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_bitmapbg.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_mixedbg.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite256.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_text.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_text16.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_colision.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sound.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_media.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_3d.h:
-/home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite3d.h:
-/home/gbaman/projects/jPlayer/pac_player/source/songArrays.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_lib.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_defines.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_basic.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_2d.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_tiledbg.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_affinebg.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_bitmapbg.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_mixedbg.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sprite256.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_text.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_text16.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_colision.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sound.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_media.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_3d.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/nflib/include/nf_sprite3d.h:
+/home/jollyrancher/projects/jPlayer/jPlayer/pac_player/source/songArrays.h:

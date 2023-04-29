@@ -146,16 +146,17 @@ void copySongsToBank(const char* array[MUSIC_SIZE][ARRAY_SIZE])
 	memcpy(array[7],tupac_ftw,sizeof(tupac_ftw));
 }
 
-int checkStylusPos(touchPosition* pen, int iconX, int iconY) {
+int checkStylusPos(touchPosition pen, int iconX, int iconY) {
 
-	if (pen->px > iconX + 16 && pen->px < iconX) {
-		if (pen->py > iconY + 16 && pen->py < iconY) {
+	if (pen.px <= iconX + 16 && pen.px >= iconX) {
+		if (pen.py <= iconY + 16 && pen.py >= iconY) {
 			return 1;
 		}
 	}
 
 	return 0;
 }
+
 
 int main(int argc, char* argv[]) {
 	NF_Set2D(0,0);
@@ -208,39 +209,34 @@ int main(int argc, char* argv[]) {
 			sprState = SPRITE_CREATED;
 		}
 
-		scanKeys();
-		if (checkStylusPos(&stylus,right.x,right.y)) {
-			if (keysDown() & KEY_TOUCH) {
-				NF_PlayRawSound(1,127,64,false,0);
-				if (player.songId < 7) {
-					player.PLAYING = false;
-					timerStop(3);
-					NF_UnloadRawSound(player.id);
-					soundKill(channel_id);
-					player.playIndex = 0;
-					player.songId++;
-					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-					player.time = 0;
-					state = timerState_Stopped;
-					sprState = SPRITE_NOT_CREATED;
-				}
+		if (checkStylusPos(stylus,right.x,right.y) && (KEY_TOUCH & keysDown())) {
+			NF_PlayRawSound(1,127,64,false,0);
+			if (player.songId < 7) {
+				player.PLAYING = false;
+				timerStop(3);
+				NF_UnloadRawSound(player.id);
+				soundKill(channel_id);
+				player.playIndex = 0;
+				player.songId++;
+				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+				player.time = 0;
+				state = timerState_Stopped;
+				sprState = SPRITE_NOT_CREATED;
 			}
 		}
-		else if (checkStylusPos(&stylus,left.x,left.y)) {
-			if (keysDown() & KEY_TOUCH) {
-				NF_PlayRawSound(1,127,64,false,0);
-				if (player.songId > 0) {
-					player.PLAYING = false;
-					timerStop(3);
-					NF_UnloadRawSound(player.id);
-					soundKill(channel_id);
-					player.playIndex = 0;
-					player.songId--;
-					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-					player.time = 0;
-					state = timerState_Stopped;
-					sprState = SPRITE_NOT_CREATED;
-				}
+		else if (checkStylusPos(stylus,left.x,left.y) && (KEY_TOUCH & keysDown())) {
+			NF_PlayRawSound(1,127,64,false,0);
+			if (player.songId > 0) {
+				player.PLAYING = false;
+				timerStop(3);
+				NF_UnloadRawSound(player.id);
+				soundKill(channel_id);
+				player.playIndex = 0;
+				player.songId--;
+				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+				player.time = 0;
+				state = timerState_Stopped;
+				sprState = SPRITE_NOT_CREATED;
 			}
 		}
 		if (!player.PLAYING)
@@ -278,10 +274,10 @@ int main(int argc, char* argv[]) {
 					NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
 			}
 		}
-
+		scanKeys();
+		touchRead(&stylus);
 		NF_Draw3dSprites();
 		glFlush(0);
-		touchRead(&stylus);
 		swiWaitForVBlank();
 		NF_Update3dSpritesGfx();
 	}
