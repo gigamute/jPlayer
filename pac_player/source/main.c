@@ -1,16 +1,53 @@
+/***
+ *     ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄        ▄  ▄▄▄▄▄▄▄▄▄▄  
+ *    ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░▌      ▐░▌▐░░░░░░░░░░▌ 
+ *    ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌░▌     ▐░▌▐░█▀▀▀▀▀▀▀█░▌
+ *    ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌       ▐░▌
+ *    ▐░▌   ▄   ▐░▌▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌ ▐░▌   ▐░▌▐░▌       ▐░▌
+ *    ▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌
+ *    ▐░▌ ▐░▌░▌ ▐░▌▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀  ▀▀▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌   ▐░▌ ▐░▌▐░▌       ▐░▌
+ *    ▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌    ▐░▌▐░▌▐░▌       ▐░▌▐░▌          ▐░▌     ▐░▌            ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌    ▐░▌▐░▌▐░▌       ▐░▌
+ *    ▐░▌░▌   ▐░▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌  ▄▄▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌     ▐░▐░▌▐░█▄▄▄▄▄▄▄█░▌
+ *    ▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌      ▐░░▌▐░░░░░░░░░░▌ 
+ *     ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀        ▀▀  ▀▀▀▀▀▀▀▀▀▀  
+ *                                                                                                                                                   
+ */
+
+// Wondersound presents: Makaveli's (2Pac actually) album, The Don Killuminati: The 7 Day Theory.
+
+/* This Nintendo DS application is the entire album put on the console, so that people can listen to this
+in the low freq and bitrate that it is. It's the entire 12 songs, and due to my method, and some limitations,
+there are some quirks (long gaps and such). However, you can just pretend it's 2004 while listening to this.
+
+The application is meant to be part of a possible series known as Wondersound. Wondersound is meant to be a digital album of whichever. A brand new way to own music.*/
 #include <nds.h>
 #include <nf_lib.h>
 #include "songArrays.h"
+#include "text_engine.h"
 
 #define TIMER_SPEED (BUS_CLOCK/1024) // Speed of hardware timer
 #define TUNE_FREQ 11025 // Sample frequency
 #define SAMPLE_RATE 0 // Sample rate
 #define MUSIC_SIZE 12 // Amount of songs
 
+// Determines the state of the game, whether we are in the menu
+typedef enum {
+	SPLASH_MODE_1,
+	SPLASH_MODE_2,
+	SPLASH_MODE_3,
+	MENU_MODE,
+	ALBUM_MODE
+} GameState;
+
 typedef enum {
 	SPRITE_NOT_CREATED,
 	SPRITE_CREATED
 } SpriteState;
+
+typedef enum {
+	BACKGROUND_CREATED,
+	BACKGROUND_NOT_CREATED,
+} backgroundState;
 
 // Struct definition for icon object
 typedef struct {
@@ -48,45 +85,36 @@ typedef struct {
 	u8 songId;
 } jPlayer;
 
+// Timer states used to check if the timer used to play music is running, paused, or stopped.
 typedef enum {
-
 	timerState_Running,
 	timerState_Paused,
 	timerState_Stopped
-
 } timerStates;
 
+GameState splashStates[3] = {SPLASH_MODE_1,SPLASH_MODE_2,SPLASH_MODE_3};
+
+// Load assets from the filesystem (folder 'nitrofiles)
 void loadAssets() {
 	NF_LoadSpriteGfx("GFX/playback",0,16,16);
 	NF_LoadSpritePal("GFX/playback",0);
 	NF_Vram3dSpriteGfx(0,0,false);
 	NF_Vram3dSpritePal(0,0);
-	NF_LoadSpriteGfx("GFX/2pacnow",1,64,64);
-	NF_LoadSpritePal("GFX/2pacnow",1);
-	NF_Vram3dSpriteGfx(1,1,true);
+	NF_LoadSpriteGfx("GFX/2pactheory",1,64,64);
+	NF_LoadSpritePal("GFX/2pactheory",1);
+	NF_Vram3dSpriteGfx(1,1,false);
 	NF_Vram3dSpritePal(1,1);
-	NF_LoadSpriteGfx("GFX/2pacstrict",2,64,64);
-	NF_LoadSpritePal("GFX/2pacstrict",2);
-	NF_Vram3dSpriteGfx(2,2,true);
-	NF_Vram3dSpritePal(2,2);
-	NF_LoadSpriteGfx("GFX/2pacthug",3,64,64);
-	NF_LoadSpritePal("GFX/2pacthug",3);
-	NF_Vram3dSpriteGfx(3,3,true);
-	NF_Vram3dSpritePal(3,3);
-	NF_LoadSpriteGfx("GFX/2pacworld",4,64,64);
-	NF_LoadSpritePal("GFX/2pacworld",4);
-	NF_Vram3dSpriteGfx(4,4,true);
-	NF_Vram3dSpritePal(4,4);
-	NF_LoadSpriteGfx("GFX/2paceyez",5,64,64);
-	NF_LoadSpritePal("GFX/2paceyez",5);
-	NF_Vram3dSpriteGfx(5,5,true);
-	NF_Vram3dSpritePal(5,5);
-	NF_LoadSpriteGfx("GFX/2pactheory",6,64,64);
-	NF_LoadSpritePal("GFX/2pactheory",6);
-	NF_Vram3dSpriteGfx(6,6,true);
-	NF_Vram3dSpritePal(6,6);
+	NF_LoadTiledBg("GFX/pac_poster","pac_album",256,256);
+	NF_LoadTiledBg("GFX/makaveli_background","makaveli",256,256);
+	NF_LoadTiledBg("GFX/pac_main_menu_photo","pac_1",256,256);
+	NF_LoadTiledBg("GFX/pac_menu_screen","pac_2",256,256);
+	NF_LoadTiledBg("GFX/interscope_splash","interscope",256,256);
+	NF_LoadTiledBg("GFX/deathrow_splash","deathrow",256,256);
+	NF_LoadTiledBg("GFX/amaru_splash","amaru",256,256);
+	NF_LoadTiledBg("GFX/credit","credit",256,256);
 }
 
+// Draw sprites of left and right arrow, and the pause button (to be removed.)
 void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
 	NF_Create3dSprite(0,0,0,x1,y1);
 	NF_Create3dSprite(1,0,0,x2,y2);
@@ -99,53 +127,61 @@ void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
 	NF_Rotate3dSprite(2,0,0,128);
 }
 
+// Draw cover art
 void drawCoverArt(int x, int y, int id)
 {
 	NF_Create3dSprite(3,id,id,x,y);
 }
 
-void chooseCoverArtID(int x, int y, int song_id,int cover_id)
-{
-	if ((song_id >= 0) && (song_id <= 1)) {
-		cover_id = 1;
-		drawCoverArt(x,y,cover_id);
-	}
-	else if ((song_id >= 2) && (song_id <= 3)) {
-		cover_id = 2;
-		drawCoverArt(x,y,cover_id);
-	}
-	else if ((song_id >= 4) && (song_id <= 5)) {
-		cover_id = 3;
-		drawCoverArt(x,y,cover_id);
-	}
-	else if ((song_id >= 6) && (song_id <= 7)) {
+// void chooseCoverArtID(int x, int y, int song_id,int cover_id)
+// {
+// 	if ((song_id >= 0) && (song_id <= 1)) {
+// 		cover_id = 1;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
+// 	else if ((song_id >= 2) && (song_id <= 3)) {
+// 		cover_id = 2;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
+// 	else if ((song_id >= 4) && (song_id <= 5)) {
+// 		cover_id = 3;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
+// 	else if ((song_id >= 6) && (song_id <= 7)) {
 
-		cover_id = 4;
-		drawCoverArt(x,y,cover_id);
-	}
-	else if ((song_id >= 8) && (song_id <= 9)) {
-		cover_id = 5;
-		drawCoverArt(x,y,cover_id);
-	}
-	else if ((song_id >= 10) && (song_id <= 11)) {
-		cover_id = 6;
-		drawCoverArt(x,y,cover_id);
-	}
+// 		cover_id = 4;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
+// 	else if ((song_id >= 8) && (song_id <= 9)) {
+// 		cover_id = 5;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
+// 	else if ((song_id >= 10) && (song_id <= 11)) {
+// 		cover_id = 6;
+// 		drawCoverArt(x,y,cover_id);
+// 	}
 
-}
+// }
 
+// Copy the songs into the array bank. The array bank is a multi-dimensional array.
 void copySongsToBank(const char* array[MUSIC_SIZE][ARRAY_SIZE])
 {
-	memcpy(array[0],tupac_brenda,sizeof(tupac_brenda));
-	memcpy(array[1],tupac_rebel,sizeof(tupac_rebel));
-	memcpy(array[2],tupac_keepyahead,sizeof(tupac_keepyahead));
-	memcpy(array[3],tupac_getaround,sizeof(tupac_getaround));
-	memcpy(array[4],tupac_buryg,sizeof(tupac_buryg));
-	memcpy(array[5],tupac_liquor,sizeof(tupac_liquor));
-	memcpy(array[6],tupac_mama,sizeof(tupac_mama));
-	memcpy(array[7],tupac_ftw,sizeof(tupac_ftw));
+	memcpy(array[0],bomb,sizeof(bomb));
+	memcpy(array[1],hail,sizeof(hail));
+	memcpy(array[2],toss,sizeof(toss));
+	memcpy(array[3],live,sizeof(live));
+	memcpy(array[4],blas,sizeof(blas));
+	memcpy(array[5],outlaw,sizeof(outlaw));
+	memcpy(array[6],daddy,sizeof(daddy));
+	memcpy(array[7],krazy,sizeof(krazy));
+	memcpy(array[8],white,sizeof(white));
+	memcpy(array[9],girlfriend,sizeof(girlfriend));
+	memcpy(array[10],head,sizeof(head));
+	memcpy(array[11],odds,sizeof(odds));
+
 }
 
+// Used to 
 int checkStylusPos(touchPosition pen, int iconX, int iconY) {
 
 	if (pen.px <= iconX + 16 && pen.px >= iconX) {
@@ -157,128 +193,340 @@ int checkStylusPos(touchPosition pen, int iconX, int iconY) {
 	return 0;
 }
 
+int checkStylusPosMenu(touchPosition pen, int x, int y) {
+
+	if (pen.px <= x + 256 && pen.px >= y) {
+		if (pen.py <= y + 192 && pen.py >= y) {
+			return 1;
+		}
+	}
+
+	return 0;
+}
 
 int main(int argc, char* argv[]) {
+	// Set up the 2D engine for the top and bottom screen in mode 0.
 	NF_Set2D(0,0);
 	NF_Set2D(1,0);
+
+	// Set up the 3D engine with mode 0, for the bottom engine, from this point onward, 0 and 1 (top and bottom), is now (1 and 0)
 	NF_Set3D(1,0);
+	// Initiate tiled background buffers
 	NF_InitTiledBgBuffers();
+	// Initiate tiled background system for both screens
 	NF_InitTiledBgSys(0);
 	NF_InitTiledBgSys(1);
+	// Initiate sprite buffers
 	NF_InitSpriteBuffers();
+	// Inititate 3D sprite system for the 3D screen
 	NF_Init3dSpriteSys();
+	// Initiate raw sound buffers.
 	NF_InitRawSoundBuffers();
+	// Set root folder to the nitro filesystem
 	NF_SetRootFolder("NITROFS");
+	// Load assets
 	loadAssets();
+	// Enable sound
 	soundEnable();
+	// Create a new player object that will represent the music player used to play the album.
 	jPlayer player;
+	// Create a new left icon
 	Icon left;
+	// Set left icon x and y position, to left side of the screen
 	left.x = 60;
 	left.y = 192/2 - 16/2 - 60;
+	// Create a new right icon
 	Icon right;
+	// Set right x and y position, to the right side of the screen
 	right.x = 60;
 	right.y = 192/2 - 16/2 + 60;
+	// Create the middle icon
 	Icon middle;
+	// Set the middle x and y position, to the middle of the screen
 	middle.x = 60;
 	middle.y = 192/2 - 16/2;
 
+	// Create a new MetaSprite object, signifying the 
 	MetaSprite coverArt;
+	// Set the coverArt x and y position, to the middle of the screen, slighty upper.
 	coverArt.x = 256 - (64 + 64);
 	coverArt.y = 192/2 - 64/2;
 	coverArt.id = 1;
 
+	// Tick used for our DS timer
 	player.time = 0;
+	// Set playing equal to true
 	player.PLAYING = true;
+	// Set the player's play index to 0. The play index is the 20 song segment that is played as a SFX.
 	player.playIndex = 0;
+	// Set the player's song id. The song id is song that is playing
 	player.songId = 0;
 	player.PAUSED = false;
+	// Copy songs to the array bank.
 	copySongsToBank(player.arrayBank);
+	// Copy the first array of the arraybank at index song id, into the player's song array, making it the first song played.
 	memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+	// Played id is the current channel (0 - 31)
 	player.id = 0;
 	int channel_id;
+	// Load the current sound from the player's song array at the index, player.playindex, into memory.
 	NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
+	// Load the sfx into memory
 	NF_LoadRawSound("SFX/press",1,22050,0);
+	// Set the timer state to stopped
+	bool FADE_OUT = false;
+	bool FADE_IN = false;
+	int splashTick = 0;
+	timerStates splashState = timerState_Stopped;
 	timerStates state = timerState_Stopped;
+	// Set the sprite state to not created
 	SpriteState sprState = SPRITE_NOT_CREATED;
+	SpriteState splash_state_0 = SPRITE_NOT_CREATED;
+	SpriteState splash_state_1 = SPRITE_NOT_CREATED;
+	SpriteState splash_state_2 = SPRITE_NOT_CREATED;
+	SpriteState splash_state_3 = SPRITE_NOT_CREATED;
+	SpriteState menuBkgState = SPRITE_NOT_CREATED;
+	// Create stylus object
 	touchPosition stylus;
-	while (1)
-	{
-		if (sprState == SPRITE_NOT_CREATED) {
-			chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
-			drawSprites(left.x,right.x,middle.x,left.y,right.y,middle.y);
-			sprState = SPRITE_CREATED;
-		}
+	// Create GameState object that signifies what mode the game is in
+	int fadeIndex;
+	int arr_index = 0;
+	GameState mode = splashStates[arr_index];
+	while (1) {	
 
-		if (checkStylusPos(stylus,right.x,right.y) && (KEY_TOUCH & keysDown())) {
-			NF_PlayRawSound(1,127,64,false,0);
-			if (player.songId < 7) {
-				player.PLAYING = false;
-				timerStop(3);
-				NF_UnloadRawSound(player.id);
-				soundKill(channel_id);
-				player.playIndex = 0;
-				player.songId++;
-				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-				player.time = 0;
-				state = timerState_Stopped;
-				sprState = SPRITE_NOT_CREATED;
-			}
-		}
-		else if (checkStylusPos(stylus,left.x,left.y) && (KEY_TOUCH & keysDown())) {
-			NF_PlayRawSound(1,127,64,false,0);
-			if (player.songId > 0) {
-				player.PLAYING = false;
-				timerStop(3);
-				NF_UnloadRawSound(player.id);
-				soundKill(channel_id);
-				player.playIndex = 0;
-				player.songId--;
-				memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
-				player.time = 0;
-				state = timerState_Stopped;
-				sprState = SPRITE_NOT_CREATED;
-			}
-		}
-		if (!player.PLAYING)
-		{
-			NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
-			player.PLAYING = true;
-		}
-
-		if (player.PLAYING)
-		{
-			if (state == timerState_Stopped)
-			{
-				channel_id = NF_PlayRawSound(player.id,127,64,false,0);
-				timerStart(3,ClockDivider_1024,0,NULL);
-				state = timerState_Running;
-			}
-			else if (state == timerState_Running)
-				player.time += timerElapsed(3);
-			
-
-			if ((player.time/TIMER_SPEED) > 4)
-			{
-				timerStop(3);
-				player.time = 0;
-				soundKill(channel_id);
-				NF_UnloadRawSound(player.id);
-				state = timerState_Stopped;
-				player.playIndex++;
-
-				if (player.songArray[player.playIndex] == NULL) {
-					player.playIndex = 0;
-					player.PLAYING = false;
+		if (mode < 3) {
+			if (FADE_OUT) {
+				for (fadeIndex = 0; fadeIndex >= -16; fadeIndex--) {
+					setBrightness(1,fadeIndex);
+					swiWaitForVBlank();
 				}
-				else
-					NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
+			}
+			
+			if (fadeIndex <= -16) {
+				switch (arr_index)
+				{
+					case 0:
+						NF_DeleteTiledBg(0,1);
+						//NF_UnloadTiledBg("interscope");
+						arr_index++;
+						mode = splashStates[arr_index];
+						FADE_OUT = false;
+						FADE_IN = true;
+						break;
+					case 1:
+						NF_DeleteTiledBg(0,1);
+						//NF_UnloadTiledBg("deathrow");
+						arr_index++;
+						mode = splashStates[arr_index];
+						FADE_OUT = false;
+						FADE_IN = true;
+						break;
+					case 2:
+						NF_DeleteTiledBg(0,1);
+						//NF_UnloadTiledBg("amaru");
+						mode = MENU_MODE;
+						FADE_OUT = false;
+						FADE_IN = true;
+						break;
+				}
+			}
+
+			if (FADE_IN) {
+				for (fadeIndex = -16; fadeIndex <= 0; fadeIndex++) {
+					setBrightness(1,fadeIndex);
+					swiWaitForVBlank();
+				}
+			}
+
+			if ((fadeIndex == 0) && (FADE_IN == false)) {
+				//fadeIndex = 0;
+				FADE_OUT = false;
+			}
+			if ((splashState == timerState_Stopped) && (FADE_OUT == false) && (FADE_IN == false)) {
+				timerStart(0,ClockDivider_1024,0,NULL);
+				splashState = timerState_Running;
+			}
+
+			if (splashState == timerState_Running)
+				splashTick += timerElapsed(0);
+			
+			if ((splashTick/TIMER_SPEED) > 2) {
+				timerStop(0);
+				splashTick = 0;
+				splashState = timerState_Stopped;
+				FADE_OUT = true;
 			}
 		}
+		if (mode == SPLASH_MODE_1) {
+			if (splash_state_0 == SPRITE_NOT_CREATED) {
+				NF_CreateTiledBg(1,0,"credit");
+				splash_state_0 = SPRITE_CREATED;
+			}
+
+			if (splash_state_1 == SPRITE_NOT_CREATED) {
+				NF_CreateTiledBg(0,1,"interscope");
+				splash_state_1 = SPRITE_CREATED;
+			}
+		}
+		else if (mode == SPLASH_MODE_2) {
+			if (splash_state_2 == SPRITE_NOT_CREATED) {
+				NF_CreateTiledBg(0,1,"deathrow");
+				splash_state_2 = SPRITE_CREATED;
+			}
+		}
+		else if (mode == SPLASH_MODE_3) {
+			if (splash_state_3 == SPRITE_NOT_CREATED) {
+				NF_CreateTiledBg(0,1,"amaru");
+				splash_state_3 = SPRITE_CREATED;
+			}
+		}
+		else if (mode == MENU_MODE) {
+			
+			if (menuBkgState == SPRITE_NOT_CREATED) {
+				NF_CreateTiledBg(1,0,"pac_1");
+				NF_CreateTiledBg(0,1,"pac_2");
+				menuBkgState = SPRITE_CREATED;
+			}
+
+			if (checkStylusPosMenu(stylus,0,0) && (KEY_TOUCH & keysDown())) {
+				NF_DeleteTiledBg(1,0);
+				NF_DeleteTiledBg(0,1);
+				NF_UnloadTiledBg("pac_1");
+				NF_UnloadTiledBg("pac_2");
+				//menuBkgState = SPRITE_NOT_CREATED;
+				mode = ALBUM_MODE;
+			} 
+		}
+		else if (mode == ALBUM_MODE) {
+			// If the sprite state is saying that sprites are not created, we created the backgrounds for the top and bottom screen, we draw the icons, and the cover art.
+			// We also set the sprite state to say that the sprites are created. They are loaded into memory, and do not need to be overwritten every vblank.
+			if (sprState == SPRITE_NOT_CREATED) {
+				//chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
+				NF_CreateTiledBg(1,1,"pac_album");
+				NF_CreateTiledBg(0,1,"makaveli");
+				drawSprites(left.x,right.x,middle.x,left.y,right.y,middle.y);
+				drawCoverArt(coverArt.x,coverArt.y,coverArt.id);
+				sprState = SPRITE_CREATED;
+			}
+
+			// If we check the stylus position, and it is on the right positon, and we touch the icon, we move to the next song.
+			if (checkStylusPos(stylus,right.x,right.y) && (KEY_TOUCH & keysDown())) {
+				NF_PlayRawSound(1,127,64,false,0);
+				// If the song id is less than the amount of songs in the album, we stop the timer used to play the song, and set the player.PLAYING flag into false.
+				if (player.songId < MUSIC_SIZE) {
+					player.PLAYING = false;
+					// stop timer
+					timerStop(3);
+					// Unload the raw sound at the sound id.
+					NF_UnloadRawSound(player.id);
+					// Kill the sound at the channel_id temporarily.
+					soundKill(channel_id);
+					// Reset the play index to 0.
+					player.playIndex = 0;
+					// Increment the song id to move onto the next song.
+					player.songId++;
+					// Copy the array in the player's array bank at index player song id, and copy it to the player's song Array, overwriting previous contents.
+					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+					// Set player tick to 0
+					player.time = 0;
+					// Stop timer state
+					state = timerState_Stopped;
+					// State that the sprite has not been created/
+					sprState = SPRITE_NOT_CREATED;
+				}
+			}
+			// If we check the stylus position, and it is on the left positon, and we touch the icon, we move to the previous song.
+			else if (checkStylusPos(stylus,left.x,left.y) && (KEY_TOUCH & keysDown())) {
+				NF_PlayRawSound(1,127,64,false,0);
+				// If the song id is greater than o, we stop the timer used to play the song, and set the player.PLAYING flag into false.
+				if (player.songId > 0) {
+					player.PLAYING = false;
+					// stop timer
+					timerStop(3);
+					// Unload the raw sound at the sound id.
+					NF_UnloadRawSound(player.id);
+					// Kill the sound at the channel_id temporarily.
+					soundKill(channel_id);
+					// Reset the play index to 0.
+					player.playIndex = 0;
+					// Decrement the song id to move onto the previous song.
+					player.songId--;
+					// Copy the array in the player's array bank at index player song id, and copy it to the player's song Array, overwriting previous contents.
+					memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+					// Set player tick to 0
+					player.time = 0;
+					// Stop timer state
+					state = timerState_Stopped;
+					// State that the sprite has not been created
+					sprState = SPRITE_NOT_CREATED;
+				}
+			}
+			// If the player is not playing, we load the player's song array segment at index player.play Index, and set playing to true.
+			if (!player.PLAYING)
+			{
+				NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
+				player.PLAYING = true;
+			}
+			// If the player is playing, we essentially start the timer, and start playing the song segment.
+			if (player.PLAYING)
+			{	
+				// Timer state says the timer state is stopped, we set the channel id to the result of playing the raw sound segment located in the player id.
+				if (state == timerState_Stopped)
+				{	// Assign the channel id
+					channel_id = NF_PlayRawSound(player.id,127,64,false,0);
+					// Start timer 3 with no callback. It is essentially a stop watch
+					timerStart(3,ClockDivider_1024,0,NULL);
+					// Set the timer state to say that the timer stat is running
+					state = timerState_Running;
+				}
+				// While the timer is running, the player time is set to the elapsed time of timer 3
+				else if (state == timerState_Running)
+					player.time += timerElapsed(3);
+				
+				// If the ticks divided by the timer speed is greater than 19 (20 seconds), stop the timer, and move onto the next song segment, and if the next segment is null
+				// move onto the next song
+				if ((player.time/TIMER_SPEED) > 19)
+				{
+					// Stop timer 3
+					timerStop(3);
+					// Reset player time to 0.
+					player.time = 0;
+					// Kill the channel at the channel_id
+					soundKill(channel_id);
+					// Unload the raw sound at the player.id
+					NF_UnloadRawSound(player.id);
+					// Increment the player's play index
+					player.playIndex++;
+					// Set the timer state to say the timer has stopped.
+					state = timerState_Stopped;
+					// If this segment at index play index in the song aray is null, we move on to the next song
+					if (player.songArray[player.playIndex] == NULL) {
+						// Reset play index
+						player.playIndex = 0;
+						// Increment the song id
+						player.songId++;
+						// Copy the array in the array bank at index song id to the player's song array.
+						memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
+						// Set player PLAYING to false
+						player.PLAYING = false;
+					}
+					else
+						// If the above is not the case, then we load the raw segment from the song array at the player id.
+						NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
+					
+				}
+			}
+		}
+		// Scan the keys
 		scanKeys();
+		// Read the touch screen with the stylus
 		touchRead(&stylus);
+		// Draw the 3D sprites
 		NF_Draw3dSprites();
 		glFlush(0);
+		// Vblank interrupt
 		swiWaitForVBlank();
+		// Update 3D Sprites gfx.
 		NF_Update3dSpritesGfx();
 	}
 	
