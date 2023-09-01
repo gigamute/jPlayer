@@ -104,6 +104,10 @@ void loadAssets() {
 	NF_LoadSpritePal("GFX/2pactheory",1);
 	NF_Vram3dSpriteGfx(1,1,false);
 	NF_Vram3dSpritePal(1,1);
+	//NF_LoadSpriteGfx("GFX/tracklist",2,64,512);
+	//NF_LoadSpritePal("GFX/tracklist",2);
+	//NF_Vram3dSpriteGfx(2,2,false);
+	//NF_Vram3dSpritePal(2,2);
 	NF_LoadTiledBg("GFX/pac_poster","pac_album",256,256);
 	NF_LoadTiledBg("GFX/makaveli_background","makaveli",256,256);
 	NF_LoadTiledBg("GFX/pac_main_menu_photo","pac_1",256,256);
@@ -115,16 +119,16 @@ void loadAssets() {
 }
 
 // Draw sprites of left and right arrow, and the pause button (to be removed.)
-void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3) {
+void drawSprites(int x1,int x2,int x3, int y1, int y2, int y3,int id) {
 	NF_Create3dSprite(0,0,0,x1,y1);
 	NF_Create3dSprite(1,0,0,x2,y2);
-	NF_Create3dSprite(2,0,0,x3,y3);
+	//NF_Create3dSprite(2,0,0,x3,y3);
 	NF_Set3dSpriteFrame(0,1);
 	NF_Set3dSpriteFrame(1,0);
-	NF_Set3dSpriteFrame(2,2);
+	//NF_Set3dSpriteFrame(2,id);
 	NF_Rotate3dSprite(0,0,0,128);
 	NF_Rotate3dSprite(1,0,0,128);
-	NF_Rotate3dSprite(2,0,0,128);
+	//NF_Rotate3dSprite(2,0,0,128);
 }
 
 // Draw cover art
@@ -276,6 +280,7 @@ int main(int argc, char* argv[]) {
 	// Set the timer state to stopped
 	bool FADE_OUT = false;
 	bool FADE_IN = false;
+	bool BOOT = true;
 	int splashTick = 0;
 	timerStates splashState = timerState_Stopped;
 	timerStates state = timerState_Stopped;
@@ -289,98 +294,35 @@ int main(int argc, char* argv[]) {
 	// Create stylus object
 	touchPosition stylus;
 	// Create GameState object that signifies what mode the game is in
-	int fadeIndex;
-	int arr_index = 0;
-	GameState mode = splashStates[arr_index];
+	int fadeIndex = 0;
+	int arr_index = 3;
+	GameState mode = MENU_MODE;
 	while (1) {	
 
-		if (mode < 3) {
-			if (FADE_OUT) {
-				for (fadeIndex = 0; fadeIndex >= -16; fadeIndex--) {
-					setBrightness(1,fadeIndex);
-					swiWaitForVBlank();
-				}
-			}
-			
-			if (fadeIndex <= -16) {
-				switch (arr_index)
-				{
-					case 0:
-						NF_DeleteTiledBg(0,1);
-						//NF_UnloadTiledBg("interscope");
-						arr_index++;
-						mode = splashStates[arr_index];
-						FADE_OUT = false;
-						FADE_IN = true;
-						break;
-					case 1:
-						NF_DeleteTiledBg(0,1);
-						//NF_UnloadTiledBg("deathrow");
-						arr_index++;
-						mode = splashStates[arr_index];
-						FADE_OUT = false;
-						FADE_IN = true;
-						break;
-					case 2:
-						NF_DeleteTiledBg(0,1);
-						//NF_UnloadTiledBg("amaru");
-						mode = MENU_MODE;
-						FADE_OUT = false;
-						FADE_IN = true;
-						break;
-				}
-			}
+		// if (mode == SPLASH_MODE_1) {
+		// 	if (splash_state_0 == SPRITE_NOT_CREATED) {
+		// 		NF_CreateTiledBg(1,0,"credit");
+		// 		splash_state_0 = SPRITE_CREATED;
+		// 	}
 
-			if (FADE_IN) {
-				for (fadeIndex = -16; fadeIndex <= 0; fadeIndex++) {
-					setBrightness(1,fadeIndex);
-					swiWaitForVBlank();
-				}
-			}
-
-			if ((fadeIndex == 0) && (FADE_IN == false)) {
-				//fadeIndex = 0;
-				FADE_OUT = false;
-			}
-			if ((splashState == timerState_Stopped) && (FADE_OUT == false) && (FADE_IN == false)) {
-				timerStart(0,ClockDivider_1024,0,NULL);
-				splashState = timerState_Running;
-			}
-
-			if (splashState == timerState_Running)
-				splashTick += timerElapsed(0);
-			
-			if ((splashTick/TIMER_SPEED) > 2) {
-				timerStop(0);
-				splashTick = 0;
-				splashState = timerState_Stopped;
-				FADE_OUT = true;
-			}
-		}
-		if (mode == SPLASH_MODE_1) {
-			if (splash_state_0 == SPRITE_NOT_CREATED) {
-				NF_CreateTiledBg(1,0,"credit");
-				splash_state_0 = SPRITE_CREATED;
-			}
-
-			if (splash_state_1 == SPRITE_NOT_CREATED) {
-				NF_CreateTiledBg(0,1,"interscope");
-				splash_state_1 = SPRITE_CREATED;
-			}
-		}
-		else if (mode == SPLASH_MODE_2) {
-			if (splash_state_2 == SPRITE_NOT_CREATED) {
-				NF_CreateTiledBg(0,1,"deathrow");
-				splash_state_2 = SPRITE_CREATED;
-			}
-		}
-		else if (mode == SPLASH_MODE_3) {
-			if (splash_state_3 == SPRITE_NOT_CREATED) {
-				NF_CreateTiledBg(0,1,"amaru");
-				splash_state_3 = SPRITE_CREATED;
-			}
-		}
-		else if (mode == MENU_MODE) {
+		// 	if (splash_state_1 == SPRITE_NOT_CREATED) {
+		// 		NF_CreateTiledBg(0,1,"interscope");
+		// 		splash_state_1 = SPRITE_CREATED;
+		// 	}
+		// }
+		// else if (mode == SPLASH_MODE_2) {
+		// 	if (splash_state_2 == SPRITE_NOT_CREATED) {
+		// 		NF_CreateTiledBg(0,1,"deathrow");
+		// 		splash_state_2 = SPRITE_CREATED;
+		// 	}
+		// }
+		// else if (mode == SPLASH_MODE_3) {
+		// 	if (splash_state_3 == SPRITE_NOT_CREATED) {
+		// 		NF_CreateTiledBg(0,1,"amaru");
+		// 		splash_state_3 = SPRITE_CREATED;
+		// 	}
+		// }
+		if (mode == MENU_MODE) {
 			
 			if (menuBkgState == SPRITE_NOT_CREATED) {
 				NF_CreateTiledBg(1,0,"pac_1");
@@ -404,7 +346,7 @@ int main(int argc, char* argv[]) {
 				//chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
 				NF_CreateTiledBg(1,1,"pac_album");
 				NF_CreateTiledBg(0,1,"makaveli");
-				drawSprites(left.x,right.x,middle.x,left.y,right.y,middle.y);
+				drawSprites(left.x,right.x,0,left.y,right.y,0,player.songId);
 				drawCoverArt(coverArt.x,coverArt.y,coverArt.id);
 				sprState = SPRITE_CREATED;
 			}
@@ -504,7 +446,10 @@ int main(int argc, char* argv[]) {
 						// Reset play index
 						player.playIndex = 0;
 						// Increment the song id
-						player.songId++;
+						if (player.songId < MUSIC_SIZE)
+							player.songId++;
+						else
+							player.songId = 0;
 						// Copy the array in the array bank at index song id to the player's song array.
 						memcpy(player.songArray,player.arrayBank[player.songId],sizeof(player.arrayBank[player.songId]));
 						// Set player PLAYING to false
