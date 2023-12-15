@@ -104,6 +104,7 @@ void loadAssets() {
 	NF_LoadSpritePal("GFX/2pactheory",1);
 	NF_Vram3dSpriteGfx(1,1,false);
 	NF_Vram3dSpritePal(1,1);
+	NF_LoadTextFont16("fonts/font16",'font',256,256,1);
 	//NF_LoadSpriteGfx("GFX/tracklist",2,64,512);
 	//NF_LoadSpritePal("GFX/tracklist",2);
 	//NF_Vram3dSpriteGfx(2,2,false);
@@ -208,6 +209,23 @@ int checkStylusPosMenu(touchPosition pen, int x, int y) {
 	return 0;
 }
 
+const char* musicTitleList [MUSIC_SIZE][2] = {
+	{"1. Bomb First (My Second Reply)","(featuring Outlawz)"},
+	{"2. Hail Mary","(featuring Outlawz)"},
+	{"3 .Toss It Up",""},
+	{"4. To Live & Die in L.A.","(featuring Val Young)"},
+	{"5. Blasphemy",""},
+	{"6. Life of an Outlaw","(featuring Outlawz)"},
+	{"7. Just Like Daddy","(featuring Outlawz)"},
+	{"10. Krazy","(featuring Bad Azz)"},
+	{"11. White Man'z World",""},
+	{"12. Me and My Girlfriend",""},
+	{"13. Hold Ya Head","(featuring Hurt-M-Badd)"},
+	{"14. Against All Odds",""}
+
+};
+
+
 int main(int argc, char* argv[]) {
 	// Set up the 2D engine for the top and bottom screen in mode 0.
 	NF_Set2D(0,0);
@@ -226,6 +244,8 @@ int main(int argc, char* argv[]) {
 	NF_Init3dSpriteSys();
 	// Initiate raw sound buffers.
 	NF_InitRawSoundBuffers();
+	// Init text system
+	NF_InitTextSys(0);
 	// Set root folder to the nitro filesystem
 	NF_SetRootFolder("NITROFS");
 	// Load assets
@@ -256,7 +276,6 @@ int main(int argc, char* argv[]) {
 	coverArt.x = 256 - (64 + 64);
 	coverArt.y = 192/2 - 64/2;
 	coverArt.id = 1;
-
 	// Tick used for our DS timer
 	player.time = 0;
 	// Set playing equal to true
@@ -277,6 +296,13 @@ int main(int argc, char* argv[]) {
 	NF_LoadRawSound(player.songArray[player.playIndex],player.id,TUNE_FREQ,SAMPLE_RATE);
 	// Load the sfx into memory
 	NF_LoadRawSound("SFX/press",1,22050,0);
+
+	// Set layer
+	NF_CreateTextLayer16(0,1,1,'font');
+	NF_CreateTextLayer16(0,2,1,'font');
+	// Define text color
+	NF_DefineTextColor(0,1,1,20,0,0);
+	NF_DefineTextColor(0,2,2,20,0,0);
 	// Set the timer state to stopped
 	bool FADE_OUT = false;
 	bool FADE_IN = false;
@@ -296,7 +322,9 @@ int main(int argc, char* argv[]) {
 	// Create GameState object that signifies what mode the game is in
 	int fadeIndex = 0;
 	int arr_index = 3;
+	int y = 0;
 	GameState mode = MENU_MODE;
+	fifoSendValue32(FIFO_PM, PM_REQ_SLEEP_DISABLE);
 	while (1) {	
 
 		// if (mode == SPLASH_MODE_1) {
@@ -323,29 +351,40 @@ int main(int argc, char* argv[]) {
 		// 	}
 		// }
 		if (mode == MENU_MODE) {
-			
+			NF_SetTextColor(0,1,1);
+			NF_WriteText16(0,1,3,1,"the makaveli album");
+			NF_WriteText16(0,1,6,4,"made by 2pac");
+			NF_WriteText16(0,1,3,7,"made by Project68K");
+			NF_WriteText16(0,1,5,13,"touch to start");
 			if (menuBkgState == SPRITE_NOT_CREATED) {
 				NF_CreateTiledBg(1,0,"pac_1");
-				NF_CreateTiledBg(0,1,"pac_2");
+				//NF_CreateTiledBg(0,2,"pac_2");
 				menuBkgState = SPRITE_CREATED;
 			}
 
 			if (checkStylusPosMenu(stylus,0,0) && (KEY_TOUCH & keysDown())) {
 				NF_DeleteTiledBg(1,0);
-				NF_DeleteTiledBg(0,1);
+				//NF_DeleteTiledBg(0,2);
 				NF_UnloadTiledBg("pac_1");
-				NF_UnloadTiledBg("pac_2");
+				//NF_UnloadTiledBg("pac_2");
 				//menuBkgState = SPRITE_NOT_CREATED;
+				NF_ClearTextLayer16(0,1);
 				mode = ALBUM_MODE;
 			} 
 		}
 		else if (mode == ALBUM_MODE) {
+			y += 1;
+			NF_SetTextColor(0,1,1);
+			NF_SetTextColor(0,2,2);
+			NF_WriteText16(0,2,1,9,musicTitleList[player.songId][0]);
+			NF_WriteText16(0,2,3,13,musicTitleList[player.songId][1]);
+			NF_ScrollBg(0,2,0,y);
 			// If the sprite state is saying that sprites are not created, we created the backgrounds for the top and bottom screen, we draw the icons, and the cover art.
 			// We also set the sprite state to say that the sprites are created. They are loaded into memory, and do not need to be overwritten every vblank.
 			if (sprState == SPRITE_NOT_CREATED) {
 				//chooseCoverArtID(coverArt.x,coverArt.y,player.songId,coverArt.id);
 				NF_CreateTiledBg(1,1,"pac_album");
-				NF_CreateTiledBg(0,1,"makaveli");
+				//NF_CreateTiledBg(0,2,"makaveli");
 				drawSprites(left.x,right.x,0,left.y,right.y,0,player.songId);
 				drawCoverArt(coverArt.x,coverArt.y,coverArt.id);
 				sprState = SPRITE_CREATED;
@@ -355,7 +394,9 @@ int main(int argc, char* argv[]) {
 			if (checkStylusPos(stylus,right.x,right.y) && (KEY_TOUCH & keysDown())) {
 				NF_PlayRawSound(1,127,64,false,0);
 				// If the song id is less than the amount of songs in the album, we stop the timer used to play the song, and set the player.PLAYING flag into false.
-				if (player.songId < MUSIC_SIZE) {
+				if (player.songId < MUSIC_SIZE - 1) {
+					NF_ClearTextLayer16(0,1);
+					NF_ClearTextLayer16(0,2);
 					player.PLAYING = false;
 					// stop timer
 					timerStop(3);
@@ -382,6 +423,8 @@ int main(int argc, char* argv[]) {
 				NF_PlayRawSound(1,127,64,false,0);
 				// If the song id is greater than o, we stop the timer used to play the song, and set the player.PLAYING flag into false.
 				if (player.songId > 0) {
+					NF_ClearTextLayer16(0,1);
+					NF_ClearTextLayer16(0,2);
 					player.PLAYING = false;
 					// stop timer
 					timerStop(3);
@@ -429,6 +472,8 @@ int main(int argc, char* argv[]) {
 				// move onto the next song
 				if ((player.time/TIMER_SPEED) > 19)
 				{
+					NF_ClearTextLayer16(0,1);
+					NF_ClearTextLayer16(0,2);
 					// Stop timer 3
 					timerStop(3);
 					// Reset player time to 0.
@@ -446,7 +491,7 @@ int main(int argc, char* argv[]) {
 						// Reset play index
 						player.playIndex = 0;
 						// Increment the song id
-						if (player.songId < MUSIC_SIZE)
+						if (player.songId < MUSIC_SIZE - 1)
 							player.songId++;
 						else
 							player.songId = 0;
@@ -462,6 +507,8 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
+		// Update Text Layers
+		NF_UpdateTextLayers();
 		// Scan the keys
 		scanKeys();
 		// Read the touch screen with the stylus
