@@ -22,7 +22,7 @@ include $(DEVKITARM)/base_rules
 
 LIBNDS	:=	$(DEVKITPRO)/libnds
 
-GAME_TITLE	    :=	Wondersound Presents - The Don Killuminati: The 7 Day Theory
+GAME_TITLE	    :=	Musicboy Pac Demo
 GAME_SUBTITLE1	:=	Josuel Corporan Vargas
 GAME_SUBTITLE2	:=	Original album by Tupac Amaru Shakur
 GAME_ICON		:=	$(CURDIR)/../icon.bmp
