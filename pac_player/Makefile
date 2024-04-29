@@ -22,9 +22,9 @@ include $(DEVKITARM)/base_rules
 
 LIBNDS	:=	$(DEVKITPRO)/libnds
 
-GAME_TITLE	    :=	Musicboy Pac Demo
-GAME_SUBTITLE1	:=	Josuel Corporan Vargas
-GAME_SUBTITLE2	:=	Original album by Tupac Amaru Shakur
+GAME_TITLE	    :=	Makaveli: The 7 Day Theory
+GAME_SUBTITLE1	:=	Musicboy Presents
+GAME_SUBTITLE2	:=	Makaveli - The 7 Day Theory
 GAME_ICON		:=	$(CURDIR)/../icon.bmp
 
 _ADDFILES	:=	-d $(NITRO_FILES)
@@ -90,7 +90,7 @@ LDFLAGS	=	-specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -lnflib -lfilesystem -lfat -lgl2d -lnds9
+LIBS	:= -lnflib -lfilesystem -lfat -lnds9
 
 
 #---------------------------------------------------------------------------------

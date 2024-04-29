@@ -75,8 +75,7 @@ main.o: /home/gbaman/projects/jPlayer/pac_player/source/main.c \
  /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_media.h \
  /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_3d.h \
  /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite3d.h \
- /home/gbaman/projects/jPlayer/pac_player/source/songArrays.h \
- /home/gbaman/projects/jPlayer/pac_player/source/text_engine.h
+ /home/gbaman/projects/jPlayer/pac_player/source/songArrays.h
 /opt/devkitpro/libnds/include/nds.h:
 /opt/devkitpro/libnds/include/nds/libversion.h:
 /opt/devkitpro/libnds/include/nds/ndstypes.h:
@@ -154,4 +153,3 @@ main.o: /home/gbaman/projects/jPlayer/pac_player/source/main.c \
 /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_3d.h:
 /home/gbaman/projects/jPlayer/pac_player/nflib/include/nf_sprite3d.h:
 /home/gbaman/projects/jPlayer/pac_player/source/songArrays.h:
-/home/gbaman/projects/jPlayer/pac_player/source/text_engine.h:
